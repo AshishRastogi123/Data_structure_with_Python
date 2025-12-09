@@ -1,0 +1,14 @@
+"""
+Docstring for Sorting.selection_sort
+"""
+n=[3,5,1,8,7,2,4,6,0,9,11,10]
+def selection_sort(n):
+    p=len(n)
+    for i in range(p):
+        min_index=i
+        for j in range(i+1,p):
+            if n[j]<n[min_index]:
+                min_index=j
+        n[i],n[min_index]=n[min_index],n[i]
+    return n
+print(selection_sort(n))

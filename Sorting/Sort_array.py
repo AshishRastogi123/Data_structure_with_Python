@@ -12,8 +12,9 @@ then output
 """
 
 arr=[5,1,9,12,5,8,4,19,10]
-start=2
-end =7
+start=0
+end =8
+
 
 def reverse_array(arr, start, end):
     if start==end:
