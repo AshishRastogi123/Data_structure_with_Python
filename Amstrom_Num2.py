@@ -1,3 +1,7 @@
+"""Amstrong number check program
+An Armstrong number of n digits is an integer such that the sum of the nth powers of its digits is equal to the number itself.
+For example, 153 is an Armstrong number of three digits since 1^3 + 5^3 + 3^3 = 153. """
+
 n=int(input("Enter a number: "))
 num=n
 nod=len(str(n))
