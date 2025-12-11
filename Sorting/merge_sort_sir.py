@@ -31,5 +31,5 @@ def merge_arrays(left,right):
         j+=1
     return merged
 
-sorted_arr=merge_sort(arr)
-print(sorted_arr)
+arr=merge_sort(arr)
+print(arr)
