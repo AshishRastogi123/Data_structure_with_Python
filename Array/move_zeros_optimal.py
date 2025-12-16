@@ -25,3 +25,8 @@ class Solution:
 s=Solution()
 nums=[0,1,0,3,12]
 s.moveZeroes(nums)
+
+"""
+time complexity: O(n)
+space complexity: O(1)
+"""
