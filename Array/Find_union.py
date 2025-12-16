@@ -48,12 +48,10 @@ class Solution:
                     else:
                         j+=1
         print(result)
-
     def findUnion(self, a, b):
         i, j = 0, 0
         n, m = len(a), len(b)
         ans = []
-
         while i < n and j < m:
             if a[i] == b[j]:
                 if not ans or ans[-1] != a[i]:
@@ -68,24 +66,16 @@ class Solution:
                 if not ans or ans[-1] != b[j]:
                     ans.append(b[j])
                 j += 1
-
-        # Remaining elements
         while i < n:
             if not ans or ans[-1] != a[i]:
                 ans.append(a[i])
             i += 1
-
         while j < m:
             if not ans or ans[-1] != b[j]:
                 ans.append(b[j])
             j += 1
-
         return ans
-
-            
-
 s=Solution()
 a = [1, 2, 3, 4, 5]
 b = [1, 1, 2, 3, 4]
-# print(s.Union_sorted_2(a,b))
 print(s.findUnion(a,b))
