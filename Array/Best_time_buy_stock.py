@@ -17,7 +17,7 @@ class Solution:
         for i in range(len(prices)):
             if minimum>prices[i]:
                 minimum=prices[i]
-            if (prices[i]-minimum)>maxi_profit:
+            elif (prices[i]-minimum)>maxi_profit:
                 maxi_profit=prices[i]-minimum
         return maxi_profit
     """
