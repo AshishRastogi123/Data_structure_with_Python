@@ -27,7 +27,13 @@ class Solution:
             if count>max_count:
                 max_count=count
         return max_count
+    
+
     def Longest_con_seq(self,nums):
+        """
+        Time Complexity: O(nlog(n))
+        space complexity: O(n)
+        """
         nums.sort()
         last_smaller=float("-inf")
         count=0
@@ -45,6 +51,11 @@ class Solution:
                 longest=count
         return longest
     def optimal(self,nums):
+        """
+        time complexity : O(n)
+        space complexity :O(n)
+
+        """
         count=0
         longest=0
         my_set=set()
