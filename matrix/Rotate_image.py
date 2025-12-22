@@ -6,7 +6,7 @@ Output: [[7,4,1],[8,5,2],[9,6,3]]
 link= https://leetcode.com/problems/rotate-image/description/
 """
 
-class Solution:
+class Solution():
     def brute_force(self,matrix): 
         """
         Time Complexity : O(n^2)
@@ -22,7 +22,7 @@ class Solution:
         for i in range(n):
             for j in range(n):
                 matrix[i][j]=p[len(matrix)-j-1][i]   
-    def optimal(matrix):
+    def optimal(self,matrix):
         """
         Time complexity: O(n^2)
         Space complexity: O(1)
@@ -33,7 +33,7 @@ class Solution:
         for i in range(len(matrix)):
             matrix[i].reverse()
     
-s=Solution
+s=Solution()
 matrix = [[1,2,3],[4,5,6],[7,8,9]]
 
 s.optimal(matrix)
