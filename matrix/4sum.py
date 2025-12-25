@@ -70,7 +70,7 @@ class Solution:
                     continue
                 k=j+1
                 l=n-1
-                while k<1 :
+                while k<l :
                     total=nums[i]+nums[j]+nums[k]+nums[l]
                     if total==target :
                         result.append([nums[i],nums[j],nums[k],nums[l]])
@@ -86,10 +86,6 @@ class Solution:
                         l-=1
         return result
                 
-
-
-
-
 s=Solution()
 nums = [1,0,-1,0,-2,2]
 target = 0
