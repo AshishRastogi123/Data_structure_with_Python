@@ -1,15 +1,10 @@
 """
-found the first occurance and last occurance of the target
-link : https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-
-ex:
-nums=[1,2,3,3,3,4,5,6,7,7,7,8,8,9,10,10,11,12,12]
-target=3
-output : [2,5]
+Docstring for Binary_search.py.Number_of_occurance
 
 """
+
 class Solution:
-    def first_last_occurance(self,nums,target):
+    def number_of_occurance(self,nums,target):
         """
         Time Complexity : O(log(n))
         Space Complexity : O(1)
@@ -18,7 +13,7 @@ class Solution:
         #     return [-1,-1]
         n=len(nums)
         if n==0:
-            return [-1,-1]
+            return 0
         low=0
         high=n-1
         lb=-1
@@ -31,7 +26,7 @@ class Solution:
             else:
                 low=mid+1
         if lb==-1 or nums[lb]!=target:
-            return [-1,-1]
+            return 0
         
         low=0
         high=n-1
@@ -42,30 +37,33 @@ class Solution:
                 high=mid-1
             else:
                 low=mid+1
-        return [lb,ub-1]
-
+        return ub-lb
+    
     def brute_force(self,nums,target):
         """
-        Time Complexity : O(n)
+        Time Complexity : O(log(n))
         Space Complexity : O(1)
         """
-        n=len(nums)
+        if len(nums)==0:
+            return 0
         first=-1
         last=-1
-        for i in range(n):
+        for i in range(len(nums)):
             if nums[i]==target:
-                if first==-1:
-                    first=i
-                last=i
-            elif nums[i]>target:
-                break   
-        return [first,last]
+                if nums[i]==target:
+                    if first==-1:
+                        first=i
+                    last=i
+                elif nums[i]>target:
+                    break
+        if first==-1:
+            return 0
+        return last-first+1
+
+
 
 s=Solution()
 nums=[1,2,3,3,3,4,5,6,7,7,7,8,8,9,10,10,11,12,12]
 target=3
-p=s.first_last_occurance(nums,target)
-b=s.brute_force(nums,target)
+p=s.number_of_occurance(nums,target)
 print(p)
-print(b)
-                
