@@ -36,7 +36,7 @@ class Solution:
     def find_minimum_arr(self,nums):
         """
         Time Complexity : O(log(n))
-        Space Complexity : O(1) or O(n)
+        Space Complexity : O(1) 
         """
         n=len(nums)
         low=0
