@@ -12,6 +12,10 @@ class Singly_linked_list:
         self.head=None
     
     def appends(self,data):
+        """
+       Time Complexity : O(n)
+       Space Complexity : O(1)
+        """
         new_node=Node(data)
         if self.head==None:
             self.head=new_node
@@ -28,6 +32,59 @@ class Singly_linked_list:
             while curr!=None:
                 print(curr.val, end=" ")
                 curr=curr.next
+
+    def inserts(self,val,position):
+        """
+        Time Complexity : O(n)
+        space Complexity : O(1)
+        """
+
+        new_node=Node(val)
+        if position==0:
+            new_node.next=self.head
+            self.head=new_node
+        else:
+            current=self.head
+            prev_node=None
+            count=0
+            while current is not None and count<position:
+                prev_node=current
+                current=current.next
+                count+=1
+            prev_node.next=new_node
+            new_node.next=current
+
+        
+    def delete_at_start(self):
+        temp=self.head
+        self.head=self.head.next
+        #now traversal or another can not reach 1st one because head shifted 
+        temp.next=None
+        del temp
+    
+    def delete_based_value(self,val):
+        curr=self.head
+        if curr.next is not None:
+            if curr.next==val:
+                self.head=curr.next
+                return
+            else:
+                found=False
+                prev=None
+                while curr is not None:
+                    if curr.val==val:
+                        found=True
+                        break
+                    prev=curr
+                    curr=curr.next
+                if found:
+                    prev.next=curr.next
+                    return
+                else:
+                    print("node not found")
+
+
+
     
 # node1=Node(7)
 # node2=Node(92)
@@ -47,4 +104,8 @@ s.appends(25)
 s.appends(97)
 s.appends(12)
 s.appends(76)
+print(s.traversal())
+s.inserts(67,2)
+print(s.traversal())
+s.delete_based_value(12)
 print(s.traversal())
