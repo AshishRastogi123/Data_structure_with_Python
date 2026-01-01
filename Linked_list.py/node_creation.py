@@ -99,13 +99,17 @@ class Singly_linked_list:
 
 # print(node1.next.val)
 # print(node1.next.next.next.val)
-s=Singly_linked_list()
-s.appends(25)
-s.appends(97)
-s.appends(12)
-s.appends(76)
-print(s.traversal())
-s.inserts(67,2)
-print(s.traversal())
-s.delete_based_value(12)
-print(s.traversal())
+
+#this i used because i want to use it in another file and that run when i run this file not in another files
+if __name__ == "__main__":
+
+    s=Singly_linked_list()
+    s.appends(25)
+    s.appends(97)
+    s.appends(12)
+    s.appends(76)
+    print(s.traversal())
+    s.inserts(67,2)
+    print(s.traversal())
+    s.delete_based_value(12)
+    print(s.traversal())

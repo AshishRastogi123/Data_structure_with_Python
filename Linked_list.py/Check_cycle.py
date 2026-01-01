@@ -54,7 +54,7 @@ class Singly_linked_list:
             temp=temp.next
         return False
     
-    def optimal(self):
+    def optimal_cycle(self):
         """
         Time Complexity : O(n)
         Space Complexity : O(1)
@@ -67,5 +67,12 @@ class Singly_linked_list:
             if s==f:
                 return True
         return False
+    # Find 
             
 s=Singly_linked_list()
+s.appends(25)
+s.appends(97)
+s.appends(12)
+s.appends(76)
+print(s.traversal())
+
