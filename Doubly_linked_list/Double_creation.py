@@ -18,7 +18,8 @@ class Double_linked_link:
         """
         new_node=Node(val)
         if not self.head:
-            self.head=new_node
+            self.head=self.tail=new_node
+            return
         else:
             new_node.next=self.head
             self.head.prev=new_node
@@ -31,13 +32,15 @@ class Double_linked_link:
         """
         new_node=Node(val)
         if not self.head:
-            self.head=new_node
+            self.head=self.tail=new_node
+            
         else:
             current=self.head
             while current.next is not None:
                 current=current.next
             current.next=new_node
             new_node.prev=current
+            self.tail=new_node
     def append_using_tail(self,val):
         """
         Time Complexity : O(1)
@@ -46,6 +49,7 @@ class Double_linked_link:
         new_node=Node(val)
         if not self.head:
             self.head=self.tail=new_node
+            return
         self.tail.next=new_node
         new_node.prev=self.tail
         self.tail=new_node
@@ -56,7 +60,7 @@ class Double_linked_link:
         Time Complexity : O(n)
         Space Complexity : O(1)
         """
-        new_node=Node(89)
+        new_node=Node(val)
         if pos==0:
             self.insert_at_head(val)
             return 
@@ -68,6 +72,7 @@ class Double_linked_link:
         
         if current is None:
             print("Element not Found")
+
         new_node.next=current.next
         new_node.prev=current
         if current.next:
@@ -84,11 +89,11 @@ class Double_linked_link:
         if not self.head:
             print("Linked list is empty")
             return
-        temp=self.head
-        self.head=temp.next
-        if self.head:
-            self.head.prev=None
-        temp.next=None
+        if self.head==self.tail:
+            self.head=self.tail=None
+            return
+        self.head=self.head.next
+        self.head.prev=None
         
     def delete_at_pos(self,pos):
         if not self.head:
@@ -107,6 +112,8 @@ class Double_linked_link:
             return
         if current.next:
             current.next.prev = current.prev
+        else:
+            self.tail = current.prev
         if current.prev:
             current.prev.next = current.next
 
@@ -122,19 +129,6 @@ class Double_linked_link:
         self.tail=self.tail.prev
         self.tail.next=None
         
-
-
-
-
-
-
-
-
-
-
-
-
-
 # n1=Node(78)
 # n2=Node(64)
 # n3=Node(89)
