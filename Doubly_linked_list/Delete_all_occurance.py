@@ -15,16 +15,22 @@ All Occurences of 2 have been deleted.
 from Double_creation import Double_linked_link
 class Solution(Double_linked_link):
     def delete_all_ocuurance(self,x):
+        if self.head is None:
+            return None
         if self.head.next is None and self.head.val==x:
             return None
+        
         temp=self.head
         prevs=None
+
         while temp is not None:
             if temp.val==x:
                 if prevs is not None:
                     prevs.next=temp.next
+
                 if temp.next is not None:
                     temp.next.prev=prevs
+
                 if temp==self.head:
                     self.head=self.head.next
                     if self.head:
@@ -33,6 +39,7 @@ class Solution(Double_linked_link):
                     continue
             else:
                 prevs=temp
+
             temp=temp.next
             
         return self.head
