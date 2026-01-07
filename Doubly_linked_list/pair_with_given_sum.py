@@ -62,6 +62,11 @@ class Solution(Double_linked_link):
         return result
     
     def sir_solution(self,target):
+        """
+        Time complexity : O(2n):O(n)
+        space complexity : O(1)
+
+        """
         right=self.head
         left=self.head
         result=[]
