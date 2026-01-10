@@ -2,8 +2,6 @@
 sort an array with quick sort
 
 """
-
-
 nums=[4,1,2,3,6,7,8,5]
 low=0
 high=len(nums)-1
