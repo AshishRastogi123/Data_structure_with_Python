@@ -20,11 +20,11 @@ class Soluton:
         n=len(nums)
         total_subset=1<<n
         result=[]
-        for i in range(total_subset-1):
+        for binary_pattern  in range(total_subset-1):
             lst=[]
-            for j in range(n):
-                if i&(1<<j)!=0:
-                    lst.append(nums[j])
+            for position  in range(n):
+                if binary_pattern &(1<<position )!=0:
+                    lst.append(nums[position])
             result.append(lst)
         result.append(nums)
 
