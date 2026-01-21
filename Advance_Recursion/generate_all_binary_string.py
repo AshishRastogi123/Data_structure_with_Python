@@ -13,6 +13,7 @@ Output: [000, 001, 010, 011, 100, 101, 110, 111]
 Explanation: As each position can be either 0 or 1, the total possible combinations are 8.
 """
 class Solution:
+
     def solve(self,index,flag,numbers,result):
         if index>=len(numbers):
             result.append("".join(numbers))
@@ -26,6 +27,10 @@ class Solution:
 
 
     def generate_all_binary_string(self,n):
+        """
+        Time complexity : (2**n)
+        Space complexity : O(n)
+        """
         numbers=["0"]*n
         result=[]
         self.solve(0,True,numbers,result)
@@ -41,6 +46,10 @@ class Solution:
         self.gfgbackward(index+1,False,numbers,result)
         
     def binstr(self, n):
+        """
+    Time complexity : (2**n)
+    Space complexity : O(n)
+    """
         numbers=["0"]*n
         result=[]
         self.gfgbackward(0,True,numbers,result)
