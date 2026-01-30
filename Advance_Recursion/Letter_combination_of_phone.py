@@ -14,6 +14,10 @@ digits[i] is a digit in the range ['2', '9'].
 """
 class Solution:
     def comibination_letter(self,digit):
+        """
+        Time Complexity : O(4^n)
+        Space Complexity : O(n)
+        """
         if not digit:
             return
         result=[]
