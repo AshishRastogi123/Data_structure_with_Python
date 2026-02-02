@@ -9,8 +9,13 @@ Input: n = 4
 Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
 Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
 """
-class SOlution:
+class Solution:
+
     def brute_force(self,n):
+        """
+        Time Complexity : O(N! x N)
+        Space Complexity : O(N^2)
+        """
         ans=[]
         board= ["."*n for _ in range(n)]
         self.solve(0,board, ans , n)
@@ -55,5 +60,38 @@ class SOlution:
 
         return True
     
-s=SOlution()
-print(s.brute_force(4))
+    # Optimal Solution 
+
+    def optimal(self, n):
+        """
+        Time Complexity : O(N!)
+        Space Complexity : O(N)
+        """
+        ans=[]
+        board=['.'*n for _ in range(n)]
+        left_row=[0]*n
+        upper_diagonal=[0]*(2*n-1)
+        lower_diagonal=[0]*(2*n-1)
+        self.solution(self,0,board,ans,left_row, upper_diagonal, lower_diagonal,n)
+        return ans
+    
+    def solution(self, col, board,ans,left_row, upper_diagonal, lower_diagonal,n):
+        if col==0:
+            ans.append(board)
+            return True
+        for row in range(n):
+            if left_row[row]==0 and upper_diagonal[n-1 + col -row]==0 and lower_diagonal[row+col]==0:
+                board[row]=board[row][:col] + 'Q' + board[row][col+1:]
+                left_row[row]=1
+                lower_diagonal[row+col]=1
+                upper_diagonal[n-1 + row +col]=1
+                self.solution( col, board,ans,left_row, lower_diagonal, upper_diagonal, n)
+                board[row]=board[row][:col] +'Q' + board[row][col+1:]
+                left_row[row]=1
+                lower_diagonal[row+col]=1
+                upper_diagonal[n-1 + row +col]=1
+
+    
+    
+s=Solution()
+print(s.optimal(4))
