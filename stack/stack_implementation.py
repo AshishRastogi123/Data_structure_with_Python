@@ -1,40 +1,52 @@
 """
 Impliment the stack and perform insert, delete , top , size
 """
-class Stack:
+    
+class myStack:
     """
     all takes time complexity : O(1)
     because we used stack list to insert or delete a element at last
     """
-    def __init__(self):
+    def __init__(self, n):
         self.items=[]
+        self.size=n
 
-    def insert(self,item):
-        self.items.append(item)
-
-    def delete(self):
-        self.items.pop()
-
-    def size(self):
-        return len(self.items)
     
-    def top(self):
-        if len(self.items)==0:
-            return "Stack is Empty"
-        return self.items[-1]
-    
-    def is_empty(self):
+    def isEmpty(self):
         return len(self.items)==0
+    
+    def isFull(self):
+        return len(self.items)==self.size
+
+    
+    def push(self, x):
+        if self.isFull():
+            return False
+        return self.items.append(x)
+
+
+    
+    def pop(self):
+        if self.isEmpty():
+            return -1
+        return self.items.pop() 
+
+
+    
+    def peek(self):
+         if self.isEmpty():
+            return -1
+         return self.items[-1]
     
     def show_stack(self):
         print(self.items)
-s=Stack()
-s.insert(2)
-s.insert(7)
-s.insert(90)
+s=myStack(5)
+s.push(2)
+s.push(7)
+s.push(90)
 s.show_stack()
-s.delete()
+s.pop()
 s.show_stack()
-print(s.top())
-print(s.size())
-print(s.is_empty())
+print(s.peek())
+print(s.isFull())
+print(s.isEmpty())
