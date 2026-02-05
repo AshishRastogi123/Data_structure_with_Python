@@ -3,6 +3,10 @@ Docstring for stack.Queue_implementation
 """
 
 class myQueue:
+    """
+    All of time complexity : O(1)
+    except deque 
+    """
     def __init__(self, n):
         # Define Data Structures
         self.items=[]
@@ -33,6 +37,9 @@ class myQueue:
 
     
     def dequeue(self):
+        """
+        Time Complexity : o(n)
+        """
         # Dequeue
         if len(self.items)==0:
             return -1
