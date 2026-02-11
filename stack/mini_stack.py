@@ -32,7 +32,7 @@ class MiniStack:
 
     def getmini(self):
         if len(self.items)==0:
-            return -1
+            return 0
         return self.items[-1][1]
 
 s=MiniStack()
