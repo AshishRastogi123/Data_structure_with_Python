@@ -21,9 +21,12 @@ class Solution:
         return 0
         
     def infixtoPostfix(self,s):
+        """
+        Time Complexity : O(n^2)
+        Space Complexity : O(n)
+        """
         stack=[]
         result=[]
-        count=0
 
         for char in s:
             if ("a"<=char<='z') or ('A'<=char<='Z') or ('0'<=char<='9'):
