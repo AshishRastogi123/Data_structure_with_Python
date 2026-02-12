@@ -12,6 +12,10 @@ The above output is its valid infix form.
 """
 class Solution:
     def Postfix_to_infix(self,postfix):
+        """
+        Time Complexity : O(N)
+        Space Complexity : O(N)
+        """
         stack=[]
 
         for char in postfix:
