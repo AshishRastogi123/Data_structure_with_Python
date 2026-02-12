@@ -31,15 +31,18 @@ class Solution:
                     maxi=total
         print(maxi)
     def max_sub_optimal(self,nums):
+        """
+        kadane algo
+        """
         total=0
         maxi=float("-inf")
         for i in range(len(nums)):
             if total<0:
                 total=0
             total+=nums[i]
+
             if total>maxi:
                 maxi=total
-        print(maxi)
         return maxi
 s=Solution()
 s.max_sub_optimal(nums)
