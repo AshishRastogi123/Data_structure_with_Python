@@ -35,6 +35,10 @@ class Solution:
         return maxi
     
     def better(self,fruits):
+        """
+        Time COmplexity : O(2n)
+        Space COmplexity : O(1)
+        """
         maxi=left=right=0
         n=len(fruits)
         my_dict={}
@@ -49,10 +53,30 @@ class Solution:
             right+=1
 
         return maxi
+    
+    def optimal(self,fruits):
+        """
+        Time COmplexity : O(2n)
+        Space COmplexity : O(1)
+        """
+        maxi=left=right=0
+        n=len(fruits)
+        my_dict={}
+        while right<n:
+            my_dict[fruits[right]]=my_dict.get(fruits[right],0)+1
+            if len(my_dict)>2:
+                my_dict[fruits[left]]=my_dict[fruits[left]]-1
+                if my_dict[fruits[left]]==0:
+                    my_dict.pop(fruits[left])
+                left+=1
+            if len(my_dict)<=2:
+                maxi=max(maxi,right-left+1)
+            right+=1
+        return maxi
 
 
     
 
 s=Solution()
 fruits=[1,2,3,2,2]
-print(s.better(fruits))
+print(s.optimal(fruits))
