@@ -2,6 +2,8 @@
 Median of the sorted array
 Link : https://leetcode.com/problems/median-of-two-sorted-arrays/
 
+isme sorted ka matlab nums1 and nums 2 sorted honge na ki merge sorted jaisa ki example 1 me hais
+
 Example 1:
 
 Input: nums1 = [1,3], nums2 = [2]
