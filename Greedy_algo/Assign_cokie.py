@@ -19,22 +19,19 @@ You need to output 2.
 """
 class Solution:
     def findContentChildren(self,g,c):
-          count=0
-          left=0
-          right=0
+          """
+          Time complexity : O(nlog(n))
+          Space Complexity : O(1)
+          """
+          count=left=right=0
           g.sort()
           c.sort()
           while left<len(g) and right<len(c):
-               if g[left]==c[right]:
+               if g[left]<=c[right]:
                     count+=1
                     left+=1
-                    right+=1
-               elif g[left]>c[right]:
-                    right+=1
-               else:
-                    count+=1
-                    right+=1
-                    left+=1
+
+               right+=1
 
           return count
 
