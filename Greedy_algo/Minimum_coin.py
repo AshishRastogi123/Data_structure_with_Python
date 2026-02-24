@@ -14,13 +14,16 @@ Constraints:
 """
 class Solution:
     def find_min_coin(self,n):
+        """
+        Time Complexity : O(n)
+        Space Complexity : O(1)
+        """
         currrency=[1, 2, 5, 10]
         count=0
         right=len(currrency)-1
         while n>0 and right>=0:
             if currrency[right]<=n:
                 count+=1
-                print(currrency[right])
                 n-=currrency[right]
             else:
                 right-=1
