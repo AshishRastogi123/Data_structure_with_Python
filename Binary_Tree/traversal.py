@@ -1,4 +1,5 @@
 from implementation import Binary_Node
+from collections import deque
 class Solution:
     def pre_order(self,node,):
         """
@@ -33,6 +34,25 @@ class Solution:
         self.post_order(node.right)
         print(node.val, end=" ")
 
+    def level_order_traversal(self,node):
+        """
+        Time Complexity : O(n)
+        Space Complexity : O(n)
+        """
+        result=[]
+        queue=deque({})
+        queue.append(node)
+        while len(queue)!=0:
+            e=queue.popleft()
+            result.append(e.val)
+            if e.left is not None:
+                queue.append(e.left)
+            if e.right is not None:
+                queue.append(e.right)
+        return result
+
+
+
 one=Binary_Node(1)
 two=Binary_Node(2)
 three=Binary_Node(3)
@@ -55,6 +75,6 @@ four.right=nine
 five.right=ten
 
 s=Solution()
-s.post_order(one)
+print(s.level_order_traversal(one))
 
 
