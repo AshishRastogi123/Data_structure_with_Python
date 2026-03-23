@@ -22,6 +22,16 @@ class Solution:
         print(node.val,end=" ")
         self.In_order(node.right)
     
+    def post_order(self,node):
+        """
+        Time Complexity : O(n)
+        Space Complexity : O(h)
+        """
+        if node==None:
+            return
+        self.post_order(node.left)
+        self.post_order(node.right)
+        print(node.val, end=" ")
 
 one=Binary_Node(1)
 two=Binary_Node(2)
@@ -45,6 +55,6 @@ four.right=nine
 five.right=ten
 
 s=Solution()
-s.In_order(one)
+s.post_order(one)
 
 
