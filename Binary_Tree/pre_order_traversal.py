@@ -1,11 +1,27 @@
 from implementation import Binary_Node
 class Solution:
     def pre_order(self,node,):
+        """
+        Time Complexity : O(n)
+        Space Complexity: O(h) where h is height of the tree and n is the number of nodes
+        """
         if node==None:
             return 
         print(node.val,end=" ")
         self.pre_order(node.left)
         self.pre_order(node.right)
+
+    def In_order(self,node):
+        """
+        Time Complexity : O(n)
+        Space Complexity : O(h)
+        """
+        if node==None:
+            return
+        self.In_order(node.left)
+        print(node.val,end=" ")
+        self.In_order(node.right)
+    
 
 one=Binary_Node(1)
 two=Binary_Node(2)
@@ -25,8 +41,10 @@ two.right=five
 three.left=six
 three.right=seven
 four.left=eight
+four.right=nine
 five.right=ten
 
 s=Solution()
-s.pre_order(one)
+s.In_order(one)
+
 
