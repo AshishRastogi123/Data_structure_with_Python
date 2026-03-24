@@ -10,14 +10,41 @@ Input: root = [1,null,2]
 Output: 2
  
 """
+from collections import deque
 from implementation import Binary_Node
 class Solution:
     def maximum_depth(self,node):
+        """
+        Time Complexity: O(n)
+        Space Complexity: O(h)
+        """
         if node is None:
             return 0
         lh=self.maximum_depth(node.left)
         rh=self.maximum_depth(node.right)
         return 1+max(lh,rh)
+
+    def max_depth(self,node):
+        """
+        Time Complexity: O(N)
+        Space Complexity: O(N)
+        """
+        if node is None:
+            return 0
+        queue=deque({})
+        height=0
+        queue.append(node)
+        while len(queue)!=0:
+            level_size=len(queue)
+            print(level_size)
+            height+=1
+            for _ in range(level_size):
+                e=queue.popleft()   
+                if e.left is not None:
+                    queue.append(e.left)
+                if e.right is not None:
+                    queue.append(e.right)
+        return height
 
 
 one=Binary_Node(1)
@@ -43,7 +70,7 @@ five.right=ten
 
 
 s=Solution()
-print(s.maximum_depth(three,0))
+print(s.max_depth(one))
         
 
 
