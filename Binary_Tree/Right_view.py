@@ -29,10 +29,27 @@ class Solution:
                 if node.left:
                     queue.append(node.left)
                 if node.right:
-                    queue.append(node.right)
-                
+                    queue.append(node.right)            
         return ans
     
+    def optimal(self,root):
+        """
+        Time Complexity : O(N)
+        SPace COmplexity: O(H)
+        """
+        ans=[]
+        level=0
+        return self.solve(root,level,ans)
+    def solve(self,node,level,ans):
+        if node is None:
+            return []
+        if len(ans)==level:
+            ans.append(node.val)
+        if node.right:
+            self.solve(node.right, level+1, ans)
+        if node.left:
+            self.solve(node.left,level+1,ans)   
+        return ans
 one=Binary_Node(1)
 two=Binary_Node(2)
 three=Binary_Node(3)
