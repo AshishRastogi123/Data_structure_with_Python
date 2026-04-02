@@ -6,6 +6,10 @@ Link :
 from collections import deque
 class Solution:
     def breath_first_search(self,adj):
+        """
+        Space Complexity: O(3n)
+        Time Complexity : O(n + 3e)
+        """
         ans=[]
         queue=deque()
         n=len(adj)
