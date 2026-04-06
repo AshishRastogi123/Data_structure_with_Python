@@ -48,6 +48,10 @@ class Solution:
         self.dfs_flood(i,j-1,color,initial_color,image_copy,rows,cols)
 
     def flood_fill_using_bfs(self,image,sr,sc,color):
+        """
+        Time Complexity : O(n*m*4)
+        Space Complexity : O(n*m) +O(n*m)
+        """
         if image[sr][sc]==color:
             return image
         image_copy=image.copy()
