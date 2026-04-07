@@ -37,8 +37,39 @@ class Solution:
                         if adjNode!=parent:
                             return True
         return False
+
+    def using_dfs(self,V,E,edges):
+        """
+        Time COmplexity: O(3V)
+        Space Complexity: O(3V)
+
+        """
+        adj_list=[[] for _ in range(V)]
+        for u,v in edges:
+            adj_list[u].append(v)
+            adj_list[v].append(u)
+        visited=[0]*V
+        for i in range(V):
+            if visited[i]==1:
+                continue
+            if self.solve(i,-1,adj_list,visited)==True:
+                return True
+        return False
+    
+    def solve(self, node, parent, adj_list, visited):
+        visited[node]=1
+        for adjnode in adj_list[node]:
+            if visited[adjnode]==0:
+                ans=self.solve(adjnode,node,adj_list,visited)
+                if ans==True:
+                    return True
+            elif visited[adjnode]==1 and adjnode!=parent:
+                return True
+        return False
+
+
 s=Solution()
 V = 4
 E = 4
 edges= [[0, 1], [0, 2], [1, 2], [2, 3]]
-print(s.cycle_detect_bfs(V,E,edges))
+print(s.using_dfs(V,E,edges))
