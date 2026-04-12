@@ -87,7 +87,7 @@ class Solution:
 
     def more_optimal(self,board):
         """
-        Time Complexity : O(4*r*c)
+        Time Complexity : O(2*r*c)
         Space Complexity: O(r*c)
         """
         rows=len(board)
@@ -97,28 +97,24 @@ class Solution:
         # Upper row
         r,c=0,0
         for c in range(cols):
-            if r==0 or c==0 or r==rows-1 or c==cols-1:
                     if board[r][c]=='O':
                         if visited[r][c]==0:
                             self.dfs(r,c,rows,cols,visited,board)
         # Last row
         r,c=rows-1,0
         for c in range(cols):
-            if r==0 or c==0 or r==rows-1 or c==cols-1:
                     if board[r][c]=='O':
                         if visited[r][c]==0:
                             self.dfs(r,c,rows,cols,visited,board)
         # First column
         r,c=0,0
         for r in range(rows):
-            if r==0 or c==0 or r==rows-1 or c==cols-1:
                     if board[r][c]=='O':
                         if visited[r][c]==0:
                            self.dfs(r,c,rows,cols,visited,board)
         # Last column
         r,c=0,cols-1
         for r in range(rows):
-            if r==0 or c==0 or r==rows-1 or c==cols-1:
                     if board[r][c]=='O':
                         if visited[r][c]==0:
                             self.dfs(r,c,rows,cols,visited,board)
